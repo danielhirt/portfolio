@@ -1,0 +1,79 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import BlogPostCard from '../components/BlogPostCard.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const featuredProjects = (await getCollection('projects'))
+	.filter(p => p.data.featured)
+	.sort((a, b) => a.data.order - b.data.order)
+	.slice(0, 3);
+
+const recentPosts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<!-- Hero Section -->
+	<section class="max-w-5xl mx-auto px-4 py-16 md:py-24">
+		<div class="max-w-2xl">
+			<h1 class="text-4xl md:text-5xl font-bold text-gray-dark dark:text-text-dark mb-6">
+				Hi, I'm Daniel
+			</h1>
+			<p class="text-xl text-gray leading-relaxed mb-8">
+				I'm a developer passionate about building software that solves real problems.
+				Here you'll find my projects and thoughts on software engineering.
+			</p>
+			<div class="flex gap-4">
+				<a
+					href="/projects"
+					class="px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent-dark transition-colors font-medium"
+				>
+					View Projects
+				</a>
+				<a
+					href="/blog"
+					class="px-6 py-3 border border-gray-light dark:border-gray-dark text-gray-dark dark:text-text-dark rounded-lg hover:border-accent hover:text-accent transition-colors font-medium"
+				>
+					Read Blog
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Featured Projects -->
+	{featuredProjects.length > 0 && (
+		<section class="max-w-5xl mx-auto px-4 py-12">
+			<div class="flex items-center justify-between mb-8">
+				<h2 class="text-2xl font-bold text-gray-dark dark:text-text-dark">Featured Projects</h2>
+				<a href="/projects" class="text-accent hover:text-accent-dark transition-colors">
+					View all &rarr;
+				</a>
+			</div>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+				{featuredProjects.map((project) => (
+					<ProjectCard project={project} />
+				))}
+			</div>
+		</section>
+	)}
+
+	<!-- Recent Blog Posts -->
+	{recentPosts.length > 0 && (
+		<section class="max-w-5xl mx-auto px-4 py-12">
+			<div class="flex items-center justify-between mb-8">
+				<h2 class="text-2xl font-bold text-gray-dark dark:text-text-dark">Recent Posts</h2>
+				<a href="/blog" class="text-accent hover:text-accent-dark transition-colors">
+					View all &rarr;
+				</a>
+			</div>
+			<div class="grid md:grid-cols-2 gap-6">
+				{recentPosts.map((post, index) => (
+					<BlogPostCard post={post} featured={index === 0} />
+				))}
+			</div>
+		</section>
+	)}
+</BaseLayout>

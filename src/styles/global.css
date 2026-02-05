@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  /* Light mode colors */
+  --color-accent: #2337ff;
+  --color-accent-dark: #000d8a;
+  --color-gray-dark: #222939;
+  --color-gray: #607395;
+  --color-gray-light: #e5e9f0;
+
+  /* Dark mode colors */
+  --color-bg-dark: #0f1219;
+  --color-bg-dark-elevated: #1a1f2e;
+  --color-text-dark: #e5e9f0;
+  --color-text-dark-muted: #9ca3af;
+}
+
+@font-face {
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Atkinson", system-ui, sans-serif;
+}
+
+/* Prose styling for markdown content */
+.prose {
+  @apply text-gray-dark dark:text-text-dark leading-relaxed;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply font-bold text-gray-dark dark:text-text-dark mt-8 mb-4;
+}
+
+.prose h1 {
+  @apply text-4xl;
+}
+
+.prose h2 {
+  @apply text-3xl;
+}
+
+.prose h3 {
+  @apply text-2xl;
+}
+
+.prose p {
+  @apply mb-6;
+}
+
+.prose a {
+  @apply text-accent hover:text-accent-dark underline;
+}
+
+.prose ul,
+.prose ol {
+  @apply mb-6 pl-6;
+}
+
+.prose ul {
+  @apply list-disc;
+}
+
+.prose ol {
+  @apply list-decimal;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose code {
+  @apply bg-gray-light dark:bg-bg-dark-elevated px-1.5 py-0.5 rounded text-sm;
+}
+
+.prose pre {
+  @apply bg-gray-dark text-white p-4 rounded-lg overflow-x-auto mb-6;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-accent pl-4 italic my-6 dark:text-text-dark-muted;
+}
+
+.prose img {
+  @apply rounded-lg max-w-full h-auto;
+}
+
+.prose hr {
+  @apply border-gray-light dark:border-gray-dark my-8;
+}

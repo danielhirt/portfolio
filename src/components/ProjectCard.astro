@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+	project: CollectionEntry<'projects'>;
+};
+
+const { project } = Astro.props;
+const { title, description, heroImage, tags, github, demo } = project.data;
+---
+
+<article class="group bg-white dark:bg-bg-dark-elevated border border-gray-light dark:border-gray-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+	<a href={`/projects/${project.id}/`} class="block">
+		{heroImage && (
+			<div class="aspect-video overflow-hidden bg-gray-light">
+				<Image
+					src={heroImage}
+					alt={title}
+					width={720}
+					height={405}
+					class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+				/>
+			</div>
+		)}
+		<div class="p-6">
+			<h3 class="text-xl font-bold text-gray-dark dark:text-text-dark mb-2 group-hover:text-accent transition-colors">
+				{title}
+			</h3>
+			<p class="text-gray mb-4 line-clamp-2">{description}</p>
+			{tags.length > 0 && (
+				<div class="flex flex-wrap gap-2">
+					{tags.slice(0, 4).map((tag) => (
+						<span class="text-xs px-2 py-1 bg-gray-light dark:bg-bg-dark text-gray rounded-full">
+							{tag}
+						</span>
+					))}
+				</div>
+			)}
+		</div>
+	</a>
+</article>

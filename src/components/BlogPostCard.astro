@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+type Props = {
+	post: CollectionEntry<'blog'>;
+	featured?: boolean;
+};
+
+const { post, featured = false } = Astro.props;
+const { title, description, pubDate, heroImage } = post.data;
+---
+
+<article class:list={[
+	"group bg-white dark:bg-bg-dark-elevated border border-gray-light dark:border-gray-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow",
+	featured && "md:col-span-2"
+]}>
+	<a href={`/blog/${post.id}/`} class:list={[
+		"block",
+		featured && "md:flex"
+	]}>
+		{heroImage && (
+			<div class:list={[
+				"aspect-video overflow-hidden bg-gray-light",
+				featured && "md:w-1/2 md:aspect-auto"
+			]}>
+				<Image
+					src={heroImage}
+					alt={title}
+					width={featured ? 800 : 720}
+					height={featured ? 450 : 405}
+					class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+				/>
+			</div>
+		)}
+		<div class:list={[
+			"p-6",
+			featured && "md:w-1/2 md:flex md:flex-col md:justify-center"
+		]}>
+			<time class="text-sm text-gray">
+				<FormattedDate date={pubDate} />
+			</time>
+			<h3 class:list={[
+				"font-bold text-gray-dark dark:text-text-dark mb-2 group-hover:text-accent transition-colors mt-1",
+				featured ? "text-2xl" : "text-xl"
+			]}>
+				{title}
+			</h3>
+			<p class:list={[
+				"text-gray",
+				featured ? "line-clamp-3" : "line-clamp-2"
+			]}>
+				{description}
+			</p>
+		</div>
+	</a>
+</article>
