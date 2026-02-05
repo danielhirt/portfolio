@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import DitherBackground from '../components/DitherBackground.astro';
 
 interface Props {
 	title: string;
@@ -17,10 +18,13 @@ const { title, description } = Astro.props;
 		<BaseHead title={title} description={description} />
 	</head>
 	<body class="min-h-screen flex flex-col bg-white dark:bg-bg-dark text-gray-dark dark:text-text-dark">
-		<Header />
-		<main class="flex-1">
-			<slot />
-		</main>
-		<Footer />
+		<DitherBackground />
+		<div class="relative z-10 flex flex-col flex-1">
+			<Header />
+			<main class="flex-1">
+				<slot />
+			</main>
+			<Footer />
+		</div>
 	</body>
 </html>
