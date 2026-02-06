@@ -5,6 +5,7 @@
 @theme {
   /* Light mode colors */
   --color-accent: #2337ff;
+  --color-accent-light: #6b7bff;
   --color-accent-dark: #000d8a;
   --color-gray-dark: #222939;
   --color-gray: #607395;
@@ -17,24 +18,8 @@
   --color-text-dark-muted: #9ca3af;
 }
 
-@font-face {
-  font-family: "Atkinson";
-  src: url("/fonts/atkinson-regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Atkinson";
-  src: url("/fonts/atkinson-bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 body {
-  font-family: "Atkinson", system-ui, sans-serif;
+  font-family: "Satoshi", system-ui, sans-serif;
 }
 
 /* Prose styling for markdown content */
@@ -68,7 +53,7 @@ body {
 }
 
 .prose a {
-  @apply text-accent hover:text-accent-dark underline;
+  @apply text-accent dark:text-accent-light hover:text-accent-dark dark:hover:text-white underline;
 }
 
 .prose ul,

@@ -7,15 +7,17 @@ const pathname = Astro.url.pathname;
 
 <header class="bg-white dark:bg-bg-dark-elevated border-b border-gray-light dark:border-gray-dark sticky top-0 z-50">
 	<nav class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-		<a href="/" class="text-xl font-bold text-gray-dark dark:text-text-dark hover:text-accent transition-colors">
-			{SITE_TITLE}
+		<a href="/" class="text-gray-dark dark:text-text-dark hover:text-accent transition-colors" aria-label="Home">
+			<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z" />
+			</svg>
 		</a>
 		<div class="flex items-center gap-6">
 			<a
 				href="/"
 				class:list={[
 					"hover:text-accent transition-colors",
-					pathname === "/" ? "text-accent font-medium" : "text-gray"
+					pathname === "/" ? "text-accent font-medium" : "text-gray dark:text-gray-light"
 				]}
 			>
 				Home
@@ -24,7 +26,7 @@ const pathname = Astro.url.pathname;
 				href="/projects"
 				class:list={[
 					"hover:text-accent transition-colors",
-					pathname.startsWith("/projects") ? "text-accent font-medium" : "text-gray"
+					pathname.startsWith("/projects") ? "text-accent font-medium" : "text-gray dark:text-gray-light"
 				]}
 			>
 				Projects
@@ -33,7 +35,7 @@ const pathname = Astro.url.pathname;
 				href="/blog"
 				class:list={[
 					"hover:text-accent transition-colors",
-					pathname.startsWith("/blog") ? "text-accent font-medium" : "text-gray"
+					pathname.startsWith("/blog") ? "text-accent font-medium" : "text-gray dark:text-gray-light"
 				]}
 			>
 				Blog
@@ -42,7 +44,7 @@ const pathname = Astro.url.pathname;
 				href="https://github.com/danielhirt"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="text-gray hover:text-accent transition-colors"
+				class="text-gray dark:text-gray-light hover:text-accent transition-colors"
 				aria-label="GitHub"
 			>
 				<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">

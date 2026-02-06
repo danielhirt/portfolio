@@ -38,7 +38,7 @@ const { title, description, pubDate, heroImage } = post.data;
 			"p-6",
 			featured && "md:w-1/2 md:flex md:flex-col md:justify-center"
 		]}>
-			<time class="text-sm text-gray">
+			<time class="text-sm text-gray dark:text-text-dark-muted">
 				<FormattedDate date={pubDate} />
 			</time>
 			<h3 class:list={[
@@ -48,7 +48,7 @@ const { title, description, pubDate, heroImage } = post.data;
 				{title}
 			</h3>
 			<p class:list={[
-				"text-gray",
+				"text-gray dark:text-text-dark-muted",
 				featured ? "line-clamp-3" : "line-clamp-2"
 			]}>
 				{description}
