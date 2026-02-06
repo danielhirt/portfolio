@@ -9,7 +9,6 @@ interface Props {
 
 const { title, description } = Astro.props;
 const pathname = Astro.url.pathname;
-const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -21,11 +20,11 @@ const base = import.meta.env.BASE_URL;
 		<DitherBackground />
 		<div class="relative z-10 flex flex-col flex-1">
 			<nav class="max-w-5xl mx-auto w-full px-4 py-4 flex flex-wrap justify-center gap-4 text-sm font-mono">
-				<a href={`${base}/`} class="hover:text-white transition-colors" class:list={[pathname === `${base}/` ? "text-white" : "text-accent-light"]}>[home]</a>
-				<a href={`${base}/projects`} class="hover:text-white transition-colors" class:list={[pathname.startsWith(`${base}/projects`) ? "text-white" : "text-accent-light"]}>[projects]</a>
-				<a href={`${base}/experience`} class="hover:text-white transition-colors" class:list={[pathname.startsWith(`${base}/experience`) ? "text-white" : "text-accent-light"]}>[experience]</a>
-				<a href={`${base}/blog`} class="hover:text-white transition-colors" class:list={[pathname.startsWith(`${base}/blog`) ? "text-white" : "text-accent-light"]}>[blog]</a>
-				<a href={`${base}/chess`} class="hover:text-white transition-colors" class:list={[pathname.startsWith(`${base}/chess`) ? "text-white" : "text-accent-light"]}>[chess]</a>
+				<a href="/" class="hover:text-white transition-colors" class:list={[pathname === "/" ? "text-white" : "text-accent-light"]}>[home]</a>
+				<a href="/projects" class="hover:text-white transition-colors" class:list={[pathname.startsWith("/projects") ? "text-white" : "text-accent-light"]}>[projects]</a>
+				<a href="/experience" class="hover:text-white transition-colors" class:list={[pathname === "/experience" ? "text-white" : "text-accent-light"]}>[experience]</a>
+				<a href="/blog" class="hover:text-white transition-colors" class:list={[pathname.startsWith("/blog") ? "text-white" : "text-accent-light"]}>[blog]</a>
+				<a href="/chess" class="hover:text-white transition-colors" class:list={[pathname === "/chess" ? "text-white" : "text-accent-light"]}>[chess]</a>
 				<a href="https://github.com/danielhirt" target="_blank" rel="noopener noreferrer" class="text-accent-light hover:text-white transition-colors">[github]</a>
 			</nav>
 			<main class="flex-1">

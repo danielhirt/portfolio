@@ -16,7 +16,7 @@ const description = 'A collection of projects I have worked on.';
 				projects.map((project, i) => (
 					<div class:list={[i > 0 && "border-t border-gray-dark/50 pt-8", i > 0 ? "mt-8" : ""]}>
 						<div class="flex items-center gap-3 mb-2">
-							<a href={`${import.meta.env.BASE_URL}/projects/${project.id}/`} class="font-bold text-accent-light hover:text-white transition-colors">{project.data.title}</a>
+							<a href={`/projects/${project.id}/`} class="font-bold text-accent-light hover:text-white transition-colors">{project.data.title}</a>
 							<span class:list={[
 								"text-xs px-2 py-0.5 font-mono shrink-0",
 								project.data.github
