@@ -17,11 +17,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = FallbackImage } = Astro.props;
 ---
 
-<!-- Theme detection (prevent flash of wrong theme) -->
+<!-- Lock to dark mode -->
 <script is:inline>
-  const theme = localStorage.getItem('theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  document.documentElement.classList.toggle('dark', theme === 'dark');
+  document.documentElement.classList.add('dark');
 </script>
 
 <!-- Global Metadata -->
@@ -41,7 +39,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 <!-- Fonts: Space Grotesk + Satoshi (for preview) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
 
 <!-- Canonical URL -->

@@ -8,6 +8,7 @@ uniform vec2 uClickPos[10];
 uniform float uClickTimes[10];
 uniform vec3 uInkColor;
 uniform vec3 uBgColor;
+uniform vec3 uAccentColor;
 uniform float uPixelSize;
 
 out vec4 fragColor;
@@ -69,34 +70,36 @@ void main() {
   float glow = exp(-mouseDist * mouseDist / (180.0 * 180.0));
   wave += glow * 0.35;
 
-  // Click ripples
+  // Click ripples (tracked separately for accent tinting)
+  float ripple = 0.0;
   for (int i = 0; i < 10; i++) {
     if (uClickTimes[i] > 0.0) {
       float age = uTime - uClickTimes[i];
       if (age < 3.0) {
         float dist = length(uv - uClickPos[i]);
-        float radius = age * 350.0;
-        float ring = exp(-pow(dist - radius, 2.0) / (60.0 * 60.0));
+        float r = age * 350.0;
+        float ring = exp(-pow(dist - r, 2.0) / (60.0 * 60.0));
         float decay = exp(-age * 1.5);
-        wave += ring * decay * 0.4;
+        ripple += ring * decay * 0.4;
       }
     }
   }
 
-  // Clamp before dithering
-  wave = clamp(wave, 0.0, 1.0);
+  float totalWave = clamp(wave + ripple, 0.0, 1.0);
 
   // Bayer threshold
   float threshold = Bayer8(cellCoord) * 0.98 + 0.01;
 
-  // Diamond mask within cell
-  float diamond = abs(cellUV.x - 0.5) + abs(cellUV.y - 0.5);
+  // Square mask within cell
+  float sq = max(abs(cellUV.x - 0.5), abs(cellUV.y - 0.5));
   float radius = 0.48;
-  float dot = step(diamond, radius);
+  float dot = step(sq, radius);
 
-  // Final: show ink dot if wave exceeds Bayer threshold, else background
-  float show = step(threshold, wave) * dot;
-  vec3 color = mix(uBgColor, uInkColor, show);
+  // Tint dots toward accent color based on ripple intensity
+  float show = step(threshold, totalWave) * dot;
+  float rippleStrength = clamp(ripple * 2.5, 0.0, 1.0);
+  vec3 dotColor = mix(uInkColor, uAccentColor, rippleStrength);
+  vec3 color = mix(uBgColor, dotColor, show);
 
   fragColor = vec4(color, 1.0);
 }

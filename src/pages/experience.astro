@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Experience';
+const description = 'Professional experience and education.';
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="max-w-2xl mx-auto px-4 py-12">
+		<div class="bg-bg-dark/60 backdrop-blur-md border border-gray-light/10 px-8 py-10 md:px-10 md:py-12">
+
+		<div class="mb-12">
+			<h2 class="text-xl font-bold text-text-dark pb-3 mb-5 border-b border-gray-dark">Technical Skills</h2>
+			<div class="space-y-2 text-sm text-text-dark-muted">
+				<p>
+					<span class="text-text-dark font-medium">Languages & Databases:</span>
+					Java, Go, Python, SQL/T-SQL, RDBMS (MariaDB, Oracle, PostgreSQL), DuckDB, InfluxDB
+				</p>
+				<p>
+					<span class="text-text-dark font-medium">Frameworks & Tools:</span>
+					Spring Framework, Angular, React, Docker, Kubernetes, Hibernate, Liquibase, Git, REST APIs
+				</p>
+			</div>
+		</div>
+
+		<div class="mb-12">
+			<h2 class="text-xl font-bold text-text-dark pb-3 mb-5 border-b border-gray-dark">Experience</h2>
+
+			<div class="mb-8">
+				<h3 class="font-bold text-text-dark">Senior Software Engineer</h3>
+				<p class="text-sm text-text-dark-muted mb-3">
+					<a href="https://appian.com/" target="_blank" rel="noopener noreferrer" class="text-accent-light hover:text-white transition-colors">Appian</a>
+					<span class="mx-1">&middot;</span> McLean, VA
+					<span class="mx-1">&middot;</span> <span class="italic">Sept 2024 &ndash; Present</span>
+				</p>
+				<ul class="list-disc pl-5 space-y-1.5 text-sm text-text-dark-muted leading-relaxed">
+					<li>Leads architectural design for new enterprise data connectivity services, architecting robust data persistence and processing strategies using Go, Java, and DuckDB.</li>
+					<li>Spearheads the design of highly scalable and resilient software solutions, focusing on optimizing database performance for large-scale applications.</li>
+					<li>Authors detailed technical design documents to translate complex requirements into actionable development plans.</li>
+					<li>Establishes and implements team-wide coding patterns and best practices to enhance code quality and performance.</li>
+				</ul>
+			</div>
+
+			<div class="border-t border-gray-dark/50 pt-8 mb-8">
+				<h3 class="font-bold text-text-dark">Software Engineer II</h3>
+				<p class="text-sm text-text-dark-muted mb-3">
+					<a href="https://appian.com/" target="_blank" rel="noopener noreferrer" class="text-accent-light hover:text-white transition-colors">Appian</a>
+					<span class="mx-1">&middot;</span> McLean, VA
+					<span class="mx-1">&middot;</span> <span class="italic">Aug 2022 &ndash; Sept 2024</span>
+				</p>
+				<ul class="list-disc pl-5 space-y-1.5 text-sm text-text-dark-muted leading-relaxed">
+					<li>Engineered complex low-code data modeling solutions in Java and Go, automating data manipulation across diverse relational source systems.</li>
+					<li>Designed and built services to interact with a real-time datastore developed with Go and DuckDB to enable rapid data synchronization for enterprise clients.</li>
+					<li>Automated backend database management using Liquibase, significantly reducing bespoke SQL creation.</li>
+					<li>Mentored junior engineers and interns through code reviews and technical guidance, upholding superior code quality.</li>
+				</ul>
+			</div>
+
+			<div class="border-t border-gray-dark/50 pt-8 mb-8">
+				<h3 class="font-bold text-text-dark">Software Engineer II / Technical Lead</h3>
+				<p class="text-sm text-text-dark-muted mb-3">
+					<a href="https://www.trinet.com/" target="_blank" rel="noopener noreferrer" class="text-accent-light hover:text-white transition-colors">TriNet USA</a>
+					<span class="mx-1">&middot;</span> Indian Land, SC
+					<span class="mx-1">&middot;</span> <span class="italic">Feb 2022 &ndash; July 2022</span>
+				</p>
+				<ul class="list-disc pl-5 space-y-1.5 text-sm text-text-dark-muted leading-relaxed">
+					<li>Led a team of contractors in migrating a legacy AngularJS UI to modern Angular, successfully launching to 300,000+ daily active users.</li>
+					<li>Independently architected and developed the foundational component framework for the new user interface.</li>
+					<li>Delivered a proof-of-concept for a low-code tool that cut internal application development time from months to days.</li>
+				</ul>
+			</div>
+
+			<div class="border-t border-gray-dark/50 pt-8">
+				<h3 class="font-bold text-text-dark">Software Engineer I</h3>
+				<p class="text-sm text-text-dark-muted mb-3">
+					<a href="https://www.trinet.com/" target="_blank" rel="noopener noreferrer" class="text-accent-light hover:text-white transition-colors">TriNet USA</a>
+					<span class="mx-1">&middot;</span> Indian Land, SC
+					<span class="mx-1">&middot;</span> <span class="italic">Jan 2020 &ndash; Feb 2022</span>
+				</p>
+				<ul class="list-disc pl-5 space-y-1.5 text-sm text-text-dark-muted leading-relaxed">
+					<li>Optimized a unified data model for benefits administration, enhancing SQL query performance by over 30%.</li>
+					<li>Designed and developed new REST API endpoints using Java and Spring Boot for a high-traffic platform.</li>
+					<li>Improved the code review and QE lifecycle, achieving a 20% faster throughput for production deployments.</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div>
+			<h2 class="text-xl font-bold text-text-dark pb-3 mb-5 border-b border-gray-dark">Education</h2>
+			<div>
+				<h3 class="font-bold text-text-dark">Bachelor of Science in Computer Science, Minor in Mathematics</h3>
+				<p class="text-sm text-text-dark-muted mb-3">University of North Carolina, Charlotte <span class="mx-1">&middot;</span> 2019</p>
+				<p class="text-sm text-text-dark-muted">GPA: 3.96 <span class="mx-1">&middot;</span> First Place, Innovative Computing Competition <span class="mx-1">&middot;</span> Lead Teaching Assistant (2+ years)</p>
+			</div>
+		</div>
+
+		</div>
+	</section>
+</BaseLayout>

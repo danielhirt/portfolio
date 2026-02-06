@@ -1,6 +1,5 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
 import DitherBackground from '../components/DitherBackground.astro';
 
 interface Props {
@@ -9,17 +8,25 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const pathname = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<BaseHead title={title} description={description} />
 	</head>
-	<body class="min-h-screen flex flex-col bg-white dark:bg-bg-dark text-gray-dark dark:text-text-dark">
+	<body class="min-h-screen flex flex-col bg-bg-dark text-text-dark">
 		<DitherBackground />
 		<div class="relative z-10 flex flex-col flex-1">
-			<Header />
+			<nav class="max-w-5xl mx-auto w-full px-4 py-4 flex flex-wrap justify-center gap-4 text-sm font-mono">
+				<a href="/" class="hover:text-white transition-colors" class:list={[pathname === "/" ? "text-white" : "text-accent-light"]}>[home]</a>
+				<a href="/projects" class="hover:text-white transition-colors" class:list={[pathname.startsWith("/projects") ? "text-white" : "text-accent-light"]}>[projects]</a>
+				<a href="/experience" class="hover:text-white transition-colors" class:list={[pathname === "/experience" ? "text-white" : "text-accent-light"]}>[experience]</a>
+				<a href="/blog" class="hover:text-white transition-colors" class:list={[pathname.startsWith("/blog") ? "text-white" : "text-accent-light"]}>[blog]</a>
+				<a href="/chess" class="hover:text-white transition-colors" class:list={[pathname === "/chess" ? "text-white" : "text-accent-light"]}>[chess]</a>
+				<a href="https://github.com/danielhirt" target="_blank" rel="noopener noreferrer" class="text-accent-light hover:text-white transition-colors">[github]</a>
+			</nav>
 			<main class="flex-1">
 				<slot />
 			</main>

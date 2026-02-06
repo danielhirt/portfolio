@@ -1,0 +1,24 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import DitherBackground from '../components/DitherBackground.astro';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body class="min-h-screen bg-bg-dark text-text-dark">
+		<DitherBackground />
+		<div class="relative z-10 flex items-center justify-center min-h-screen">
+			<slot />
+		</div>
+	</body>
+</html>

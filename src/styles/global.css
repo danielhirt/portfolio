@@ -3,6 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
   /* Light mode colors */
   --color-accent: #2337ff;
   --color-accent-light: #6b7bff;
@@ -24,7 +26,7 @@ body {
 
 /* Prose styling for markdown content */
 .prose {
-  @apply text-gray-dark dark:text-text-dark leading-relaxed;
+  @apply text-sm text-text-dark-muted leading-relaxed;
 }
 
 .prose h1,
@@ -33,32 +35,36 @@ body {
 .prose h4,
 .prose h5,
 .prose h6 {
-  @apply font-bold text-gray-dark dark:text-text-dark mt-8 mb-4;
+  @apply font-bold text-text-dark mt-8 mb-4;
 }
 
 .prose h1 {
-  @apply text-4xl;
-}
-
-.prose h2 {
-  @apply text-3xl;
-}
-
-.prose h3 {
   @apply text-2xl;
 }
 
+.prose h2 {
+  @apply text-xl pb-3 mb-5 border-b border-gray-dark;
+}
+
+.prose h3 {
+  @apply text-base font-bold text-text-dark;
+}
+
 .prose p {
-  @apply mb-6;
+  @apply mb-4;
+}
+
+.prose strong {
+  @apply font-medium text-text-dark;
 }
 
 .prose a {
-  @apply text-accent dark:text-accent-light hover:text-accent-dark dark:hover:text-white underline;
+  @apply text-accent-light hover:text-white transition-colors no-underline;
 }
 
 .prose ul,
 .prose ol {
-  @apply mb-6 pl-6;
+  @apply mb-4 pl-5;
 }
 
 .prose ul {
@@ -70,15 +76,15 @@ body {
 }
 
 .prose li {
-  @apply mb-2;
+  @apply mb-1.5 leading-relaxed;
 }
 
 .prose code {
-  @apply bg-gray-light dark:bg-bg-dark-elevated px-1.5 py-0.5 rounded text-sm;
+  @apply bg-bg-dark-elevated px-1.5 py-0.5 rounded text-sm;
 }
 
 .prose pre {
-  @apply bg-gray-dark text-white p-4 rounded-lg overflow-x-auto mb-6;
+  @apply bg-bg-dark-elevated p-4 overflow-x-auto mb-4 border border-gray-dark/50;
 }
 
 .prose pre code {
@@ -86,13 +92,13 @@ body {
 }
 
 .prose blockquote {
-  @apply border-l-4 border-accent pl-4 italic my-6 dark:text-text-dark-muted;
+  @apply border-l-4 border-gray-dark pl-4 italic my-4 text-text-dark-muted;
 }
 
 .prose img {
-  @apply rounded-lg max-w-full h-auto;
+  @apply max-w-full h-auto;
 }
 
 .prose hr {
-  @apply border-gray-light dark:border-gray-dark my-8;
+  @apply border-gray-dark my-8;
 }

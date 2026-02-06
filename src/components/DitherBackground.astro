@@ -70,6 +70,7 @@
       uClickTimes: gl.getUniformLocation(program, 'uClickTimes'),
       uInkColor: gl.getUniformLocation(program, 'uInkColor'),
       uBgColor: gl.getUniformLocation(program, 'uBgColor'),
+      uAccentColor: gl.getUniformLocation(program, 'uAccentColor'),
       uPixelSize: gl.getUniformLocation(program, 'uPixelSize'),
     };
 
@@ -85,8 +86,8 @@
 
     // --- Theme colors ---
     const COLORS = {
-      dark: { ink: [0.898, 0.914, 0.941], bg: [0.059, 0.071, 0.098] },   // #e5e9f0 on #0f1219
-      light: { ink: [0.133, 0.161, 0.224], bg: [1.0, 1.0, 1.0] },         // #222939 on #ffffff
+      dark: { ink: [0.898, 0.914, 0.941], bg: [0.059, 0.071, 0.098], accent: [0.42, 0.482, 1.0] },   // #e5e9f0 on #0f1219, accent #6b7bff
+      light: { ink: [0.133, 0.161, 0.224], bg: [1.0, 1.0, 1.0], accent: [0.137, 0.216, 1.0] },     // #222939 on #ffffff, accent #2337ff
     };
 
     function isDarkMode(): boolean {
@@ -150,6 +151,7 @@
       gl!.uniform1fv(loc.uClickTimes, clickTimes);
       gl!.uniform3f(loc.uInkColor, colors.ink[0], colors.ink[1], colors.ink[2]);
       gl!.uniform3f(loc.uBgColor, colors.bg[0], colors.bg[1], colors.bg[2]);
+      gl!.uniform3f(loc.uAccentColor, colors.accent[0], colors.accent[1], colors.accent[2]);
       gl!.uniform1f(loc.uPixelSize, PIXEL_SIZE * Math.min(window.devicePixelRatio, 2));
 
       gl!.drawArrays(gl!.TRIANGLES, 0, 3);
