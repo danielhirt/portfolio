@@ -24,6 +24,43 @@ body {
   font-family: "Satoshi", system-ui, sans-serif;
 }
 
+/* Animated tracer border */
+@property --tracer-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.tracer-box {
+  position: relative;
+}
+
+.tracer-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--tracer-angle),
+    transparent 0%,
+    transparent 75%,
+    rgba(107, 123, 255, 0.4) 85%,
+    rgba(107, 123, 255, 0.7) 90%,
+    rgba(107, 123, 255, 0.4) 95%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: tracer-rotate 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes tracer-rotate {
+  to { --tracer-angle: 360deg; }
+}
+
 /* Prose styling for markdown content */
 .prose {
   @apply text-sm text-text-dark-muted leading-relaxed;

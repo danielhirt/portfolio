@@ -12,7 +12,7 @@ const description = 'Thoughts on software engineering, projects, and things I am
 
 <BaseLayout title={title} description={description}>
 	<section class="max-w-2xl mx-auto px-4 py-12">
-		<div class="bg-bg-dark/60 backdrop-blur-md border border-gray-light/10 px-8 py-10 md:px-10 md:py-12">
+		<div class="tracer-box bg-bg-dark/60 backdrop-blur-md border border-gray-light/10 px-8 py-10 md:px-10 md:py-12">
 			{posts.length > 0 ? (
 				posts.map((post, i) => (
 					<div class:list={[i > 0 && "border-t border-gray-dark/50 pt-8", i > 0 ? "mt-8" : ""]}>
