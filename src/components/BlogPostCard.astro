@@ -16,7 +16,7 @@ const { title, description, pubDate, heroImage } = post.data;
 	"group bg-white dark:bg-bg-dark-elevated border border-gray-light dark:border-gray-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow",
 	featured && "md:col-span-2"
 ]}>
-	<a href={`${import.meta.env.BASE_URL}blog/${post.id}/`} class:list={[
+	<a href={`${import.meta.env.BASE_URL}/blog/${post.id}/`} class:list={[
 		"block",
 		featured && "md:flex"
 	]}>
