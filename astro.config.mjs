@@ -7,7 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com', // Update this to your custom domain
+  site: 'https://danielhirt.github.io',
+  base: '/portfolio',
   output: 'static',
   integrations: [mdx(), sitemap()],
   vite: {
