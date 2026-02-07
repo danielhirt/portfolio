@@ -12,7 +12,7 @@ const description = 'Two-player chess game.';
 				<span id="status" class="text-text-dark">White to move</span>
 			</div>
 			<div id="board" class="grid grid-cols-8 border border-gray-light/10 select-none"></div>
-			<div id="move-list" class="w-full mt-6 max-h-40 overflow-y-auto font-mono text-xs text-text-dark-muted"></div>
+			<div id="move-list" class="w-full mt-6 max-h-40 overflow-y-auto font-mono text-xs text-text-dark-muted flex justify-center scrollbar-hidden"></div>
 			<button id="reset-btn" class="mt-6 text-sm font-mono text-accent-light hover:text-white transition-colors cursor-pointer">
 				[new game]
 			</button>
@@ -86,6 +86,12 @@ const description = 'Two-player chess game.';
 	.square.check {
 		background: radial-gradient(circle, rgba(255, 60, 60, 0.6) 0%, transparent 70%);
 	}
+	.scrollbar-hidden {
+		scrollbar-width: none;
+	}
+	.scrollbar-hidden::-webkit-scrollbar {
+		display: none;
+	}
 </style>
 
 <script>
@@ -96,8 +102,8 @@ const description = 'Two-player chess game.';
 	type Board = (Piece | null)[];
 
 	const UNICODE: Record<string, string> = {
-		wK: '\u265A', wQ: '\u265B', wR: '\u265C', wB: '\u265D', wN: '\u265E', wP: '\u265F',
-		bK: '\u265A', bQ: '\u265B', bR: '\u265C', bB: '\u265D', bN: '\u265E', bP: '\u265F',
+		wK: '\u265A\uFE0E', wQ: '\u265B\uFE0E', wR: '\u265C\uFE0E', wB: '\u265D\uFE0E', wN: '\u265E\uFE0E', wP: '\u265F\uFE0E',
+		bK: '\u265A\uFE0E', bQ: '\u265B\uFE0E', bR: '\u265C\uFE0E', bB: '\u265D\uFE0E', bN: '\u265E\uFE0E', bP: '\u265F\uFE0E',
 	};
 
 	const INITIAL_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR';
@@ -421,7 +427,7 @@ const description = 'Two-player chess game.';
 			el.innerHTML = '';
 			return;
 		}
-		let html = '<table class="w-full"><tbody>';
+		let html = '<table><tbody>';
 		for (let i = 0; i < moveHistory.length; i += 2) {
 			const moveNum = Math.floor(i / 2) + 1;
 			const white = moveHistory[i];
