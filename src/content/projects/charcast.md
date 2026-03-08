@@ -3,7 +3,6 @@ title: "Charcast"
 description: "A browser-based ASCII art engine that converts images and video to ASCII art in real time, with text-to-ASCII via FIGlet fonts."
 tags: ["Next.js", "TypeScript", "Canvas API", "Web Workers"]
 demo: "https://charcast.app"
-github: "https://github.com/danielhirt/charcast"
 featured: true
 order: 3
 ---
