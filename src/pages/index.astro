@@ -35,10 +35,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				GitHub: <a href="https://github.com/danielhirt" target="_blank" rel="noopener noreferrer" class="text-accent-light hover:text-white transition-colors font-mono">@danielhirt</a>
 			</p>
 			<p>
+				Twitter: <a href="https://x.com/dchirtbuilds" target="_blank" rel="noopener noreferrer" class="text-accent-light hover:text-white transition-colors font-mono">@dchirtbuilds</a>
+			</p>
+			<p>
 				LinkedIn: <a href="https://www.linkedin.com/in/dchirt/" target="_blank" rel="noopener noreferrer" class="text-accent-light hover:text-white transition-colors font-mono">@dchirt</a>
 			</p>
 			<p>
 				Email: <button id="copy-email" type="button" class="text-accent-light hover:text-white transition-colors cursor-pointer font-mono">danielchirt16 [at] gmail (dot) com</button>
+			</p>
+			<p>
+				Projects/Feedback: <button id="copy-email-projects" type="button" class="text-accent-light hover:text-white transition-colors cursor-pointer font-mono">dchirtbuilds [at] proton (dot) me</button>
 			</p>
 		</div>
 
@@ -53,15 +59,19 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</div>
 
 	<script>
-		document.getElementById('copy-email')?.addEventListener('click', async () => {
-			await navigator.clipboard.writeText('danielchirt16@gmail.com');
-			const btn = document.getElementById('copy-email');
-			if (btn) {
-				const original = btn.textContent;
-				btn.textContent = 'Copied!';
-				setTimeout(() => { btn.textContent = original; }, 2000);
-			}
-		});
+		function setupCopyButton(id: string, email: string) {
+			document.getElementById(id)?.addEventListener('click', async () => {
+				await navigator.clipboard.writeText(email);
+				const btn = document.getElementById(id);
+				if (btn) {
+					const original = btn.textContent;
+					btn.textContent = 'Copied!';
+					setTimeout(() => { btn.textContent = original; }, 2000);
+				}
+			});
+		}
+		setupCopyButton('copy-email', 'danielchirt16@gmail.com');
+		setupCopyButton('copy-email-projects', 'dchirtbuilds@proton.me');
 	</script>
 
 	<style>
