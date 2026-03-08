@@ -4,7 +4,7 @@ description: "A lightweight wget clone written in Rust — a fast, async file do
 tags: ["Rust", "CLI", "Async", "Networking"]
 github: "https://github.com/danielhirt/rget"
 featured: true
-order: 5
+order: 6
 ---
 
 ## Overview

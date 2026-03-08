@@ -3,7 +3,7 @@ title: "Wickwright"
 description: "A candle-making experiment tracking app for documenting candle recipes, burn tests, and organizing collections."
 tags: ["Next.js", "React", "TypeScript", "Drizzle", "Turso"]
 featured: true
-order: 4
+order: 5
 ---
 
 ## Overview

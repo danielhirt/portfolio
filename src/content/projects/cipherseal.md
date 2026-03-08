@@ -4,7 +4,7 @@ description: "A CLI tool that embeds hidden, imperceptible watermarks into image
 tags: ["Python", "Steganography", "CLI", "Security"]
 github: "https://github.com/danielhirt/CipherSeal"
 featured: true
-order: 3
+order: 4
 ---
 
 ## Overview
