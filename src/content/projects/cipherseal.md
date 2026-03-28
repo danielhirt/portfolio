@@ -9,12 +9,12 @@ order: 4
 
 ## Overview
 
-CipherSeal enables users to embed imperceptible watermarks into both images and text files. It generates randomly assigned content identifiers that can be verified independently, designed to help combat AI-generated misinformation and deepfakes.
+CipherSeal embeds imperceptible watermarks into images and text files. It generates content identifiers that can be verified independently, designed to combat AI-generated misinformation and deepfakes.
 
 ## How It Works
 
 1. **Embed**: Add a hidden watermark to an image or text file via a simple CLI command
-2. **Share**: Distribute the watermarked content — the watermark is invisible to the naked eye
+2. **Share**: Distribute the watermarked content. The watermark is invisible to the naked eye
 3. **Verify**: Extract and verify the embedded watermark to confirm content authenticity
 
 ## Technical Details
@@ -33,4 +33,4 @@ CipherSeal enables users to embed imperceptible watermarks into both images and 
 
 ## Why I Built This
 
-With the rise of AI-generated content and deepfakes, there's a growing need for tools that can verify content authenticity. CipherSeal explores steganographic techniques as a lightweight approach to content provenance — embedding proof of origin directly into the media itself.
+AI-generated content and deepfakes created demand for tools that verify content authenticity. CipherSeal uses steganographic techniques as a lightweight approach to content provenance, embedding proof of origin into the media itself.

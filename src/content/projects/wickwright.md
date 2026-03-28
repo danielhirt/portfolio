@@ -12,11 +12,11 @@ WickWright is a purpose-built tool for candle makers to track their craft. It le
 
 ## Features
 
-- **Candle Recipes** — Track wax type, fragrance, wick, and pour details for each candle
-- **Burn Tests** — Document burn test results with hourly photo tracking to dial in performance
-- **Collections** — Organize candles into groups for product lines or experiments
-- **Media Gallery** — Attach photos and videos to candles, burn tests, and collections
-- **Tools** — Batch calculator and wax/fragrance formula helpers
+- **Candle Recipes**: Track wax type, fragrance, wick, and pour details for each candle
+- **Burn Tests**: Document burn test results with hourly photo tracking to dial in performance
+- **Collections**: Organize candles into groups for product lines or experiments
+- **Media Gallery**: Attach photos and videos to candles, burn tests, and collections
+- **Tools**: Batch calculator and wax/fragrance formula helpers
 
 ## Technical Details
 
@@ -28,4 +28,4 @@ WickWright is a purpose-built tool for candle makers to track their craft. It le
 
 ## Architecture
 
-The app uses a polymorphic media system — images and videos can be attached to any entity (candle, burn test, or collection) through a single media table. Local development runs against a SQLite file, while production uses Turso for edge-friendly distributed SQLite.
+The app uses a polymorphic media system: images and videos can be attached to any entity (candle, burn test, or collection) through a single media table. Local development runs against a SQLite file, while production uses Turso for edge-friendly distributed SQLite.

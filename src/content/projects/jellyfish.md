@@ -26,4 +26,4 @@ Jellyfish is a key-value storage system built from scratch in Go. It implements 
 
 ## Why I Built This
 
-This project was an exploration into building core database infrastructure from first principles. Understanding how data persistence, distributed consensus, and key-value stores work at a low level provides insight into the systems we rely on daily.
+I built this to understand core database infrastructure from first principles: data persistence, distributed consensus, and key-value storage at a low level.

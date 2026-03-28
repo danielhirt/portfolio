@@ -9,7 +9,7 @@ order: 3
 
 ## Overview
 
-Charcast is a free, privacy-first tool that converts images and videos into ASCII art directly in your browser. Drop an image or video and watch it transform into colored ASCII characters in real time. Everything runs client-side — no uploads, no server processing.
+Charcast is a free, privacy-first tool that converts images and videos into ASCII art directly in your browser. Drop an image or video and watch it transform into colored ASCII characters in real time. Everything runs client-side. No uploads, no server processing.
 
 ## How It Works
 
