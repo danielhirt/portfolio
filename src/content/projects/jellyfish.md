@@ -4,7 +4,7 @@ description: "A distributed key-value store database written in Go, designed for
 tags: ["Go", "Distributed Systems", "Database"]
 github: "https://github.com/danielhirt/jellyfish"
 featured: true
-order: 1
+order: 3
 ---
 
 ## Overview

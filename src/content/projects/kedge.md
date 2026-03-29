@@ -4,7 +4,7 @@ description: "A Rust CLI that detects when code changes make docs stale, then in
 tags: ["Rust", "CLI", "AI", "tree-sitter", "DevTools"]
 github: "https://github.com/danielhirt/kedge"
 featured: true
-order: 7
+order: 1
 ---
 
 ## Overview
